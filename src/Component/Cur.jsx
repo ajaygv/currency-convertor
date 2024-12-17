@@ -10,13 +10,17 @@ export const Cur = () => {
       fetch(api)
       .then(response => response.json())
       .then(data => {
-      const userInput =(document.getElementById("money").value)
+      const Currency =parseFloat(document.getElementById("money").value)
       const select1=(document.getElementById("select1").value)
       const select2=(document.getElementById("select2").value)
-      console.log(data.conversion_rates[select1])
-      console.log(userInput*data.conversion_rates[select2])
-      const convert = userInput*data.conversion_rates[select2]
-      setfinal(convert)
+      // console.log(data.conversion_rates[select1])
+      const first=data.conversion_rates[select1]
+      const second = data.conversion_rates[select2]
+      const final=((Currency/first)*second)
+      console.log(first)
+      console.log(second)
+      setfinal(final)
+      console.log(data)
       } )
 
    }
